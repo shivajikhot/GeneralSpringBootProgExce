@@ -6,7 +6,7 @@ on:
  push
 jobs:
   jave_maven:
-    runs-on: ubutnu-latest
+    runs-on: ubuntu-latest
     steps:
      - name: Checkout
        uses: actions/checkout@v2
