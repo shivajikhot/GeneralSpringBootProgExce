@@ -10,9 +10,17 @@ jobs:
     steps:
      - name: Checkout
        uses: actions/checkout@v2
-     - name: Setup Java JDK
+     - name: Java JDK
        uses: actions/setup-java@v4.6.0
        with:
         distribution: "zulu"
         java-version: "17"
+     - run: mvn --batch-mode --update-snapshots verify
+     - run: mkdir staging && cp target/*.jar staging
+     - name: Upload a Build Artifact
+       uses: actions/upload-artifact@v4
+       with:
+        path: staging
+        
+        
          
